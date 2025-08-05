@@ -1,7 +1,9 @@
+'use client'
+
 import { useState } from 'react'
-import { Input } from "/components/ui/input"
-import { Button } from "/components/ui/button"
-import { Search } from "lucide-react"
+import { Input } from '/components/ui/input'
+import { Button } from '/components/ui/button'
+import { Search } from 'lucide-react'
 
 export default function SearchPage() {
   const [searchQuery, setSearchQuery] = useState('')
@@ -15,7 +17,7 @@ export default function SearchPage() {
     }
   }
 
-  const handleKeyPress = (e: React.KeyboardEvent) => {
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') {
       handleSearch()
     }
@@ -40,7 +42,7 @@ export default function SearchPage() {
                 placeholder="Enter your search query..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                onKeyPress={handleKeyPress}
+                onKeyDown={handleKeyDown}
                 className="w-full"
               />
             </div>
